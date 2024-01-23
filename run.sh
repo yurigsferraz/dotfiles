@@ -3,6 +3,9 @@
 
 export DOT_FILES_DIR="$(dirname "$(readlink -f "$0")")"
 
+sudo apt update
+sudo apt upgrade
+
 apt=(
 	git
 	zsh
@@ -23,6 +26,7 @@ done
 
 scripts=(
 	kitty
+	chrome
 )
 
 for script in "${scripts[@]}"; do
