@@ -55,3 +55,7 @@ map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
 -- Other:
 -- :BarbarEnable - enables barbar (enabled by default)
 -- :BarbarDisable - very bad command, should never be used
+
+-- ToggleTerm
+vim.keymap.set('n', '<Leader>tt', '<cmd>ToggleTerm direction=float<CR>')
+vim.keymap.set('t', '<Leader>tt', '<cmd>ToggleTerm direction=float<CR>')
