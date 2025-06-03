@@ -31,7 +31,7 @@ return {
 				lua = { "luacheck" },
 				python = { "flake8" },
 				ruby = { "rubocop" },
-                go = { "golangcilint" },
+				go = { "golangcilint" },
 			}
 
 			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
@@ -48,14 +48,14 @@ return {
 			end, { desc = "Trigger linting for current file" })
 		end,
 	},
-    {
-        "shkarin/mason-nvim-lint",
-        dependencies = {
-            "mason-org/mason.nvim",
-            "mfussenegger/nvim-lint",
-        },
-        opts = {},
-    },
+	{
+		"shkarin/mason-nvim-lint",
+		dependencies = {
+			"mason-org/mason.nvim",
+			"mfussenegger/nvim-lint",
+		},
+		opts = {},
+	},
 	{
 		"stevearc/conform.nvim",
 		event = { "BufReadPre", "BufNewFile" },
@@ -80,13 +80,12 @@ return {
 			end, { desc = "Format file or range (in visual mode)" })
 		end,
 	},
-    {
-        "zapling/mason-conform.nvim",
-         dependencies = {
-                "mason-org/mason.nvim",
-                "stevearc/conform.nvim",
-          },
-          opts = {
-          },
-    },
+	{
+		"zapling/mason-conform.nvim",
+		dependencies = {
+			"mason-org/mason.nvim",
+			"stevearc/conform.nvim",
+		},
+		opts = {},
+	},
 }
