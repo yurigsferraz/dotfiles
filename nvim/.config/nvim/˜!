@@ -1,0 +1,41 @@
+return {
+    {
+        "neovim/nvim-lspconfig",
+    },
+    {
+        "mason-org/mason.nvim",
+        config = function()
+            require("mason").setup()
+        end,
+    },
+    {
+        "mason-org/mason-lspconfig.nvim",
+        opts = {
+            ensure_installed = { "lua_ls", "gopls", "pyright" },
+        },
+        dependencies = {
+            { "mason-org/mason.nvim", opts = {} },
+            "neovim/nvim-lspconfig",
+        },
+    },
+    {
+        "mfussenegger/nvim-lint",
+        opts = {
+            events = { "BufWritePost", "BufReadPost", "InsertLeave" },
+            linters_by_ft = {
+                lua = { "luacheck" },
+                go = { "golangci_lint" },
+            },
+        },
+    },
+    {
+        "rshkarin/mason-nvim-lint",
+        dependencies = {
+            "mason-org/mason.nvim",
+            "mfussenegger/nvim-lint",
+        },
+        opts = {
+            ensure_installed = { "luacheck", "golangci-lint"},
+        },
+    }
+}

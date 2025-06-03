@@ -37,3 +37,4 @@ vim.diagnostic.config({
 
 --  Set pop window for Go documentation
 vim.g.go_doc_popup_window = 1
+vim.opt.cursorline = true
