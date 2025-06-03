@@ -36,7 +36,7 @@ return {
 
 			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
-			vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+			vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
 				group = lint_augroup,
 				callback = function()
 					lint.try_lint()
@@ -78,6 +78,18 @@ return {
 					timeout_ms = 1000,
 				})
 			end, { desc = "Format file or range (in visual mode)" })
+
+			-- Autoformat on save
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				callback = function(args)
+					require("conform").format({
+						bufnr = args.buf,
+						lsp_fallback = true,
+						async = false,
+						timeout_ms = 1000,
+					})
+				end,
+			})
 		end,
 	},
 	{
