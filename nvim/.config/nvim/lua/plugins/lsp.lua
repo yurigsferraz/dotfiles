@@ -11,7 +11,7 @@ return {
 	{
 		"mason-org/mason-lspconfig.nvim",
 		opts = {
-			ensure_installed = { "lua_ls", "gopls", "pyright" },
+			ensure_installed = { "lua_ls", "gopls", "pyright", "nginx_language_server" },
 		},
 		dependencies = {
 			{ "mason-org/mason.nvim", opts = {} },

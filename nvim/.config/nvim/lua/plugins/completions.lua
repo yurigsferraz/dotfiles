@@ -1,14 +1,18 @@
 return {
+	--{
+	--	"zbirenbaum/copilot.lua",
+	--	cmd = "Copilot",
+	--	opts = {
+	--		suggestion = { enabled = true }, -- Desativar sugestões nativas
+	--		panel = { enabled = false },
+	--	},
+	--	config = function(_, opts)
+	--		require("copilot").setup(opts)
+	--	end,
+	--},
 	{
-		"zbirenbaum/copilot.lua",
-		cmd = "Copilot",
-		opts = {
-			suggestion = { enabled = true }, -- Desativar sugestões nativas
-			panel = { enabled = false },
-		},
-		config = function(_, opts)
-			require("copilot").setup(opts)
-		end,
+		"github/copilot.vim",
+		opts = {},
 	},
 	{
 		"saghen/blink.cmp",
@@ -31,7 +35,7 @@ return {
 			completion = { documentation = { auto_show = true } },
 
 			sources = {
-				default = { "lazydev", "lsp", "path", "snippets", "buffer", "copilot" },
+				default = { "lazydev", "lsp", "path", "snippets", "buffer" }, --"copilot" },
 				providers = {
 					lazydev = {
 						name = "LazyDev",
