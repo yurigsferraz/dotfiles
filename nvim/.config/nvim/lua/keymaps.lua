@@ -1,61 +1,44 @@
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
--- Move to previous/next
-map("n", "<A-,>", "<Cmd>BufferPrevious<CR>", opts)
-map("n", "<A-.>", "<Cmd>BufferNext<CR>", opts)
-
--- Re-order to previous/next
-map("n", "<A-<>", "<Cmd>BufferMovePrevious<CR>", opts)
-map("n", "<A->>", "<Cmd>BufferMoveNext<CR>", opts)
-
--- Goto buffer in position...
-map("n", "<A-1>", "<Cmd>BufferGoto 1<CR>", opts)
-map("n", "<A-2>", "<Cmd>BufferGoto 2<CR>", opts)
-map("n", "<A-3>", "<Cmd>BufferGoto 3<CR>", opts)
-map("n", "<A-4>", "<Cmd>BufferGoto 4<CR>", opts)
-map("n", "<A-5>", "<Cmd>BufferGoto 5<CR>", opts)
-map("n", "<A-6>", "<Cmd>BufferGoto 6<CR>", opts)
-map("n", "<A-7>", "<Cmd>BufferGoto 7<CR>", opts)
-map("n", "<A-8>", "<Cmd>BufferGoto 8<CR>", opts)
-map("n", "<A-9>", "<Cmd>BufferGoto 9<CR>", opts)
-map("n", "<A-0>", "<Cmd>BufferLast<CR>", opts)
-
--- Pin/unpin buffer
-map("n", "<A-p>", "<Cmd>BufferPin<CR>", opts)
-
--- Goto pinned/unpinned buffer
---                 :BufferGotoPinned
---                 :BufferGotoUnpinned
-
--- Close buffer
-map("n", "<A-w>", "<Cmd>BufferClose<CR>", opts)
-
--- Wipeout buffer
---                 :BufferWipeout
-
--- Close commands
---                 :BufferCloseAllButCurrent
---                 :BufferCloseAllButPinned
---                 :BufferCloseAllButCurrentOrPinned
---                 :BufferCloseBuffersLeft
---                 :BufferCloseBuffersRight
-
--- Magic buffer-picking mode
-map("n", "<C-p>", "<Cmd>BufferPick<CR>", opts)
-map("n", "<C-s-p>", "<Cmd>BufferPickDelete<CR>", opts)
-
--- Sort automatically by...
-map("n", "<Space>bb", "<Cmd>BufferOrderByBufferNumber<CR>", opts)
-map("n", "<Space>bn", "<Cmd>BufferOrderByName<CR>", opts)
-map("n", "<Space>bd", "<Cmd>BufferOrderByDirectory<CR>", opts)
-map("n", "<Space>bl", "<Cmd>BufferOrderByLanguage<CR>", opts)
-map("n", "<Space>bw", "<Cmd>BufferOrderByWindowNumber<CR>", opts)
-
--- Other:
--- :BarbarEnable - enables barbar (enabled by default)
--- :BarbarDisable - very bad command, should never be used
-
 -- ToggleTerm
 vim.keymap.set("n", "<Leader>tt", "<cmd>ToggleTerm direction=float<CR>")
 vim.keymap.set("t", "<Leader>tt", "<cmd>ToggleTerm direction=float<CR>")
+
+-- Tab navigation
+vim.keymap.set("n", "<leader>tn", ":tabnew<CR>", { desc = "Nova Tab" })
+vim.keymap.set("n", "<leader>te", ":tabedit ", { desc = "Tab Edit (arquivo)" }) -- vai pedir o arquivo
+vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", { desc = "Fechar Tab" })
+vim.keymap.set("n", "<leader>to", ":tabonly<CR>", { desc = "Deixar só essa Tab" })
+vim.keymap.set("n", "<leader>tp", ":tabprev<CR>", { desc = "Tab Anterior" })
+vim.keymap.set("n", "<leader>tnx", ":tabnext<CR>", { desc = "Tab Próxima" })
+vim.keymap.set("n", "gt", ":tabnext<CR>", { desc = "Tab Próxima" })
+vim.keymap.set("n", "gT", ":tabprev<CR>", { desc = "Tab Anterior" })
+
+-- Navegação entre buffers com Tab e Shift+Tab
+vim.keymap.set("n", "<Tab>", ":bnext<CR>", { desc = "Próximo Buffer" })
+vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", { desc = "Buffer Anterior" })
+
+-- Fechar buffer atual (com plugin bbye, se quiser)
+vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", { desc = "Fechar Buffer" })
+
+-- Splits rápidos
+vim.keymap.set("n", "<leader>v", ":vsplit<CR>", { desc = "Split Vertical" })
+vim.keymap.set("n", "<leader>h", ":split<CR>", { desc = "Split Horizontal" })
+
+-- Navegação entre splits
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Janela Esquerda" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Janela Direita" })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Janela Baixo" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Janela Cima" })
+
+-- Fechar split atual
+vim.keymap.set("n", "<leader>wq", "<C-w>q", { desc = "Fechar Split" })
+
+-- Fechar todos os splits menos o atual
+vim.keymap.set("n", "<leader>wo", "<C-w>o", { desc = "Só esse Split (only)" })
+
+vim.keymap.set("n", "<leader>wh", "<C-w>H", { desc = "Mover Split p/ Esquerda" })
+vim.keymap.set("n", "<leader>wj", "<C-w>J", { desc = "Mover Split p/ Baixo" })
+vim.keymap.set("n", "<leader>wk", "<C-w>K", { desc = "Mover Split p/ Cima" })
+vim.keymap.set("n", "<leader>wl", "<C-w>L", { desc = "Mover Split p/ Direita" })

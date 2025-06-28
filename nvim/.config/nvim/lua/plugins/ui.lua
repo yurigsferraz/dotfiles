@@ -5,14 +5,30 @@ return {
 			vim.cmd.colorscheme("kanagawa-wave")
 		end,
 	},
-	{
-		"romgrk/barbar.nvim",
-		dependencies = { "lewis6991/gitsigns.nvim", "nvim-tree/nvim-web-devicons" },
-	},
+	--{
+	--	"romgrk/barbar.nvim",
+	--	dependencies = { "lewis6991/gitsigns.nvim", "nvim-tree/nvim-web-devicons" },
+	--},
 	{
 		"akinsho/toggleterm.nvim",
 		version = "*",
 		config = true,
+	},
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("lualine").setup({
+				sections = {
+					lualine_a = { "mode" },
+					lualine_b = { "branch" },
+					lualine_c = { "buffers" }, -- aqui os buffers ficam na barra de baixo
+					lualine_x = { "encoding", "fileformat", "filetype" },
+					lualine_y = { "progress" },
+					lualine_z = { "location" },
+				},
+			})
+		end,
 	},
 	{
 		"folke/snacks.nvim",
@@ -30,6 +46,7 @@ return {
 			},
 			picker = {
 				enabled = true,
+				hidden = true,
 				sources = {
 					explorer = {
 						layout = {
@@ -37,6 +54,10 @@ return {
 								position = "right",
 							},
 						},
+					},
+					files = {
+						hidden = true,
+						ignored = true,
 					},
 				},
 			},
@@ -76,7 +97,7 @@ return {
 			},
 			-- find
 			{
-				"<leader>fb",
+				"<leader>bl",
 				function()
 					Snacks.picker.buffers()
 				end,
