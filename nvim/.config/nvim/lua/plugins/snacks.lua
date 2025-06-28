@@ -1,36 +1,5 @@
 return {
 	{
-		"rebelot/kanagawa.nvim",
-		config = function()
-			vim.cmd.colorscheme("kanagawa-wave")
-		end,
-	},
-	--{
-	--	"romgrk/barbar.nvim",
-	--	dependencies = { "lewis6991/gitsigns.nvim", "nvim-tree/nvim-web-devicons" },
-	--},
-	{
-		"akinsho/toggleterm.nvim",
-		version = "*",
-		config = true,
-	},
-	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		config = function()
-			require("lualine").setup({
-				sections = {
-					lualine_a = { "mode" },
-					lualine_b = { "branch" },
-					lualine_c = { "buffers" }, -- aqui os buffers ficam na barra de baixo
-					lualine_x = { "encoding", "fileformat", "filetype" },
-					lualine_y = { "progress" },
-					lualine_z = { "location" },
-				},
-			})
-		end,
-	},
-	{
 		"folke/snacks.nvim",
 		priority = 1000,
 		lazy = false,
