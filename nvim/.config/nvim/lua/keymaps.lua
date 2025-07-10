@@ -8,6 +8,7 @@ vim.keymap.set("t", "<Leader>tt", "<cmd>ToggleTerm direction=float<CR>")
 -- Tab navigation
 vim.keymap.set("n", "<leader>tn", ":tabnew<CR>", { desc = "Nova Tab" })
 vim.keymap.set("n", "<leader>te", ":tabedit ", { desc = "Tab Edit (arquivo)" }) -- vai pedir o arquivo
+vim.keymap.set("n", "<leader>tq", ":tabclose<CR>", { desc = "Fechar Tab" })
 vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", { desc = "Fechar Tab" })
 vim.keymap.set("n", "<leader>to", ":tabonly<CR>", { desc = "Deixar só essa Tab" })
 vim.keymap.set("n", "<leader>tp", ":tabprev<CR>", { desc = "Tab Anterior" })
@@ -21,6 +22,7 @@ vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", { desc = "Buffer Anterior" })
 
 -- Fechar buffer atual (com plugin bbye, se quiser)
 vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", { desc = "Fechar Buffer" })
+vim.keymap.set("n", "<leader>bq", ":bdelete<CR>", { desc = "Fechar Buffer" })
 
 -- Splits rápidos
 vim.keymap.set("n", "<leader>v", ":vsplit<CR>", { desc = "Split Vertical" })
