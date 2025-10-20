@@ -12,8 +12,8 @@ vim.opt.splitright = true -- Novas divisões verticais à direita da atual
 
 -- [[ Edição de Texto ]]
 vim.opt.expandtab = true -- Converte TABs em espaços
-vim.opt.tabstop = 4 -- Número de espaços de um TAB
-vim.opt.shiftwidth = 4 -- Número de espaços ao indentar com >> ou <<
+vim.opt.tabstop = 2 -- Número de espaços de um TAB
+vim.opt.shiftwidth = 2 -- Número de espaços ao indentar com >> ou <<
 
 vim.opt.virtualedit = "block" -- Permite mover o cursor para posições virtuais no modo visual em blocos
 

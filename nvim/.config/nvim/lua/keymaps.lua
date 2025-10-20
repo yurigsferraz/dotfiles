@@ -44,3 +44,32 @@ vim.keymap.set("n", "<leader>wh", "<C-w>H", { desc = "Mover Split p/ Esquerda" }
 vim.keymap.set("n", "<leader>wj", "<C-w>J", { desc = "Mover Split p/ Baixo" })
 vim.keymap.set("n", "<leader>wk", "<C-w>K", { desc = "Mover Split p/ Cima" })
 vim.keymap.set("n", "<leader>wl", "<C-w>L", { desc = "Mover Split p/ Direita" })
+
+-- Go
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "go",
+	callback = function()
+		-- Testes
+		vim.keymap.set(
+			"n",
+			"<leader>tf",
+			":GoTestFunc<CR>",
+			{ buffer = true, desc = "Go: Rodar teste atual (TestFunc)" }
+		)
+		vim.keymap.set(
+			"n",
+			"<leader>ta",
+			":GoTestFile<CR>",
+			{ buffer = true, desc = "Go: Rodar todos testes do arquivo" }
+		)
+		vim.keymap.set("n", "<leader>tc", ":GoCoverageToggle<CR>", { buffer = true, desc = "Go: Toggle test coverage" })
+
+		-- Fmt/Imports/Fix
+		vim.keymap.set("n", "<leader>gf", ":GoFmt<CR>", { buffer = true, desc = "Go: Formatar arquivo" })
+		vim.keymap.set("n", "<leader>gi", ":GoImports<CR>", { buffer = true, desc = "Go: Organizar imports" })
+		vim.keymap.set("n", "<leader>gx", ":GoFix<CR>", { buffer = true, desc = "Go: Go Fix" })
+
+		-- Rename
+		vim.keymap.set("n", "<leader>gr", ":GoRename<CR>", { buffer = true, desc = "Go: Renomear (GoRename)" })
+	end,
+})
