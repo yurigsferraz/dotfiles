@@ -1,19 +1,15 @@
 return {
-	--{
-	--	"zbirenbaum/copilot.lua",
-	--	cmd = "Copilot",
-	--	opts = {
-	--		suggestion = { enabled = true }, -- Desativar sugestões nativas
-	--		panel = { enabled = false },
-	--	},
-	--	config = function(_, opts)
-	--		require("copilot").setup(opts)
-	--	end,
-	--},
-	{
-		"github/copilot.vim",
-		opts = {},
-	},
+	-- {
+	-- 	"zbirenbaum/copilot.lua",
+	-- 	cmd = "Copilot",
+	-- 	opts = {
+	-- 		suggestion = { enabled = true }, -- Desativar sugestões nativas
+	-- 		panel = { enabled = false },
+	-- 	},
+	-- 	config = function(_, opts)
+	-- 		require("copilot").setup(opts)
+	-- 	end,
+	-- },
 	{
 		"saghen/blink.cmp",
 		dependencies = {
@@ -35,7 +31,7 @@ return {
 			completion = { documentation = { auto_show = true } },
 
 			sources = {
-				default = { "lazydev", "lsp", "path", "snippets", "buffer" }, --"copilot" },
+				default = { "lazydev", "lsp", "path", "snippets", "buffer" }, -- , "copilot" },
 				providers = {
 					lazydev = {
 						name = "LazyDev",
@@ -43,12 +39,12 @@ return {
 						-- make lazydev completions top priority (see `:h blink.cmp`)
 						score_offset = 100,
 					},
-					copilot = {
-						name = "copilot",
-						module = "blink-cmp-copilot",
-						score_offset = 100,
-						async = true,
-					},
+					--copilot = {
+					--	name = "copilot",
+					--	module = "blink-cmp-copilot",
+					--	score_offset = 100,
+					--	async = true,
+					--},
 				},
 			},
 
