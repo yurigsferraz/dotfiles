@@ -45,6 +45,15 @@ vim.keymap.set("n", "<leader>wj", "<C-w>J", { desc = "Mover Split p/ Baixo" })
 vim.keymap.set("n", "<leader>wk", "<C-w>K", { desc = "Mover Split p/ Cima" })
 vim.keymap.set("n", "<leader>wl", "<C-w>L", { desc = "Mover Split p/ Direita" })
 
+-- CodeCompanion
+
+vim.keymap.set({ "n", "v" }, "<leader>ca", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+vim.keymap.set("v", "cs", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
+
+-- Expand 'cc' into 'CodeCompanion' in the command line
+vim.cmd([[cab cc CodeCompanion]])
+
 -- Go
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "go",

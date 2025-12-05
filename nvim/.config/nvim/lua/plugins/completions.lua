@@ -11,6 +11,9 @@ return {
 	-- 	end,
 	-- },
 	{
+		"github/copilot.vim",
+	},
+	{
 		"saghen/blink.cmp",
 		dependencies = {
 			"rafamadriz/friendly-snippets",

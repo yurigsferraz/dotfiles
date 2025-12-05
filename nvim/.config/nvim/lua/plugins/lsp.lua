@@ -4,6 +4,15 @@ return {
 		config = function()
 			local lspconfig = require("lspconfig")
 			lspconfig.rubocop.setup({ autostart = false })
+			lspconfig.solargraph.setup({
+				settings = {
+					solargraph = {
+						diagnostics = true,
+						formatting = true,
+						completion = true,
+					},
+				},
+			})
 		end,
 	},
 	{
@@ -15,7 +24,7 @@ return {
 	{
 		"mason-org/mason-lspconfig.nvim",
 		opts = {
-			ensure_installed = { "lua_ls", "gopls", "pyright", "nginx_language_server", "ruby_lsp" },
+			ensure_installed = { "lua_ls", "gopls", "pyright", "nginx_language_server", "solargraph" },
 		},
 		dependencies = {
 			{ "mason-org/mason.nvim", opts = {} },
