@@ -2,7 +2,7 @@
 vim.opt.number = true -- Exibe número da linha atual
 vim.opt.relativenumber = true -- Exibe números relativos nas outras linhas
 
-vim.opt.wrap = false -- Desabilita quebra de linha (wrap)
+vim.opt.wrap = true -- Habilita quebra de linha (wrap)
 
 vim.opt.termguicolors = true -- Habilita suporte a cores verdadeiras no terminal
 
